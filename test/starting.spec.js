@@ -3,6 +3,6 @@ var assert = require('assert');
 describe('Basic Mocha Test', function(){
     
     it('should throw erros', function(){
-        assert.equal(3,2);
+        assert.equal(3,3);
     })
 });
