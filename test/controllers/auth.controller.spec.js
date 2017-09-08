@@ -9,8 +9,14 @@ describe('AuthController', function () {
         console.log('running before each');
         authController.setRoles(['user']);
     });
+   
+    /*
+      beforeEach('this function is erroring intentionally', function erroringFunction() {
+        throw ({error: 'error'})
+    });
+    */
     
-    describe('isAuthorized', function () {
+    describe.only('isAuthorized', function () {
 
         it('Should return false if not authorized', function () {
               authController.setRoles(['user']);
@@ -22,19 +28,33 @@ describe('AuthController', function () {
         
             assert.equal(true, authController.isAuthorized('admin'));
         })
+        
+         it('should not allow a get if not authorized');
+         it('should allow get if authorized');
        
     })
     
-    describe('isAuthorizedAsync', function () {
+    describe.skip('isAuthorizedAsync', function () {
 
      it('Should return false if not authorized', function (done) {
-           authController.setRoles(['user']);
-            authController.isAuthorizedAsync('admin',
+       /*    if(true) { //something environmental
+               this.skip()
+           }else{
+               authController.isAuthorizedAsync('admin',
                 function (isAuth) {
                     assert.equal(false, isAuth);
                 done();
                 
+                }); 
+           } */
+          authController.isAuthorizedAsync('admin',
+                function (isAuth) {
+                    assert.equal(false, isAuth);
+                    done();
                 });
+
+
+           
 
         })
        
