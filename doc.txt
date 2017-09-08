@@ -1,1 +1,3 @@
 https://github.com/jonathanfmills/TestingNodeWithMocha
+chaijs.com/api/bdd
+npm install --save chai-as-promised
